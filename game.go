@@ -71,11 +71,11 @@ func drawCell(scr *conio.TScreen, x, y int) {
 func catchKey() {
 	// ev := evs.ReadEvent()
 	conio.NewKeyboardAction("MoveUp", "w", "", func(ev conio.TKeyboardEvent) bool {
-		hero.moveUp()
-		// gameMap.data[gameMap.hero.GetX()+gameMap.hero.GetY()*mapW].object = NewObject(gameMap.hero.GetX(), gameMap.hero.GetY())
-		// gameMap.hero.MoveUp()
-		// gameMap.data[gameMap.hero.GetX()+gameMap.hero.GetY()*mapW].object = gameMap.hero
-		// log.Info("Hero move up")
+		// hero.moveUp()
+		gameMap.data[gameMap.hero.GetX()+gameMap.hero.GetY()*mapW].object = NewObject(gameMap.hero.GetX(), gameMap.hero.GetY())
+		gameMap.hero.MoveUp()
+		gameMap.data[gameMap.hero.GetX()+gameMap.hero.GetY()*mapW].object = gameMap.hero
+		log.Info("Hero move up")
 		return true
 	})
 	conio.NewKeyboardAction("MoveDown", "s", "", func(ev conio.TKeyboardEvent) bool {
@@ -107,12 +107,12 @@ func catchKey() {
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
-func (o *gameMap) moveUp() {
-	o.data[o.hero.GetX()+o.hero.GetY()*mapW].object = NewObject(o.hero.GetX(), o.hero.GetY())
-	o.hero.MoveUp()
-	o.data[o.hero.GetX()+o.hero.GetY()*mapW].object = o.hero
-	log.Info(o.hero.GetType(), " move up")
-}
+// func (o *gameMap) moveUp() {
+// 	o.data[o.hero.GetX()+o.hero.GetY()*mapW].object = NewObject(o.hero.GetX(), o.hero.GetY())
+// 	o.hero.MoveUp()
+// 	o.data[o.hero.GetX()+o.hero.GetY()*mapW].object = o.hero
+// 	log.Info(o.hero.GetType(), " move up")
+// }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 func main() {
